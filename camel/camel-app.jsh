@@ -6,7 +6,7 @@
 //DEPS org.apache.camel:camel-netty
 //DEPS org.slf4j:slf4j-nop:1.7.30
 
-/open camel-imports
+/open camel/camel-imports
 
 Main main = new Main();
 main.configure().addRoutesBuilder(new RouteBuilder() {

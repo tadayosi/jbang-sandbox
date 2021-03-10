@@ -5,7 +5,7 @@
 //DEPS org.apache.camel:camel-netty:3.9.0-SNAPSHOT
 //DEPS org.slf4j:slf4j-nop:1.7.25
 
-/open camel-imports
+/open camel/camel-imports
 
 import org.apache.camel.component.netty.*;
 

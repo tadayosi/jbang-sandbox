@@ -6,7 +6,7 @@
 //DEPS org.apache.camel:camel-http
 //DEPS org.slf4j:slf4j-nop:1.7.30
 
-/open camel-imports
+/open camel/camel-imports
 
 import org.apache.camel.support.jsse.*
 import org.apache.camel.component.http.*
