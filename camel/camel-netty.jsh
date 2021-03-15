@@ -11,7 +11,6 @@ import org.apache.camel.component.netty.*;
 
 Main main = new Main();
 main.configure().addRoutesBuilder(new RouteBuilder() {
-    @Override
     public void configure() throws Exception {
         EndpointUriFactory factory = getContext().adapt(ExtendedCamelContext.class).getEndpointUriFactory("netty");
         Map<String, Object> config = Map.of(

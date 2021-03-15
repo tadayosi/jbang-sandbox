@@ -8,12 +8,11 @@
 
 /open camel/camel-imports
 
-import org.apache.camel.support.jsse.*
-import org.apache.camel.component.http.*
+import org.apache.camel.support.jsse.*;
+import org.apache.camel.component.http.*;
 
 Main main = new Main();
 main.configure().addRoutesBuilder(new RouteBuilder() {
-    @Override
     public void configure() throws Exception {
         KeyStoreParameters ksp = new KeyStoreParameters();
         ksp.setResource("certs/client-truststore.jks");

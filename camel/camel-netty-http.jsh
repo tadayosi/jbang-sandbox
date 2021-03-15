@@ -16,7 +16,6 @@ import org.apache.camel.component.netty.*
 
 Main main = new Main();
 main.configure().addRoutesBuilder(new RouteBuilder() {
-    @Override
     public void configure() throws Exception {
         from("netty-http:http://localhost:9999/test?disableStreamCache=false")
             .toD("direct:end?pollingConsumerQueueSize=1000&pollingConsumerBlockTimeout=0&pollingConsumerBlockWhenFull=true")

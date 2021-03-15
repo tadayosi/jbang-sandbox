@@ -10,7 +10,6 @@
 
 Main main = new Main();
 main.configure().addRoutesBuilder(new RouteBuilder() {
-    @Override
     public void configure() throws Exception {
         from("netty:tcp://localhost:9999")
             .to("stream:out")
