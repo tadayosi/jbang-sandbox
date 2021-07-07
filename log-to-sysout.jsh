@@ -1,5 +1,5 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
-//DEPS org.slf4j:slf4j-simple:1.7.30
+//DEPS org.slf4j:slf4j-simple:1.7.31
 
 import java.util.stream.*;
 import org.slf4j.*;

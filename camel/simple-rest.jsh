@@ -5,7 +5,7 @@
 //DEPS org.apache.camel:camel-stream
 //DEPS org.apache.camel:camel-rest
 //DEPS org.apache.camel:camel-undertow
-//DEPS org.slf4j:slf4j-simple:1.7.30
+//DEPS org.slf4j:slf4j-simple:1.7.31
 
 /open camel/camel-imports
 

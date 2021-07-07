@@ -5,8 +5,8 @@
 //DEPS org.apache.camel:camel-stream
 //DEPS org.apache.camel:camel-http
 //DEPS org.apache.camel:camel-jsonpath
-///DEPS org.slf4j:slf4j-simple:1.7.30
-//DEPS org.slf4j:slf4j-nop:1.7.30
+///DEPS org.slf4j:slf4j-simple:1.7.31
+//DEPS org.slf4j:slf4j-nop:1.7.31
 
 /open camel/camel-imports
 

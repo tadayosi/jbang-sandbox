@@ -1,6 +1,6 @@
-import org.apache.camel.*
-import org.apache.camel.builder.*
-import org.apache.camel.main.*
-import org.apache.camel.spi.*
+import org.apache.camel.*;
+import org.apache.camel.builder.*;
+import org.apache.camel.main.*;
+import org.apache.camel.spi.*;
 
-import static org.apache.camel.builder.PredicateBuilder.*
+import static org.apache.camel.builder.PredicateBuilder.*;

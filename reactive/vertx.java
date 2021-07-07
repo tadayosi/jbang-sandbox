@@ -1,7 +1,7 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //DEPS io.vertx:vertx-stack-depchain:4.0.3@pom
 //DEPS io.vertx:vertx-core
-//DEPS org.slf4j:slf4j-simple:1.7.30
+//DEPS org.slf4j:slf4j-simple:1.7.31
 
 import io.vertx.core.*;
 import io.vertx.core.eventbus.*;

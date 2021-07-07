@@ -1,10 +1,10 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
-//DEPS org.apache.camel:camel-bom:3.9.0@pom
+//DEPS org.apache.camel:camel-bom:3.11.0@pom
 //DEPS io.vertx:vertx-core:4.0.3
 //DEPS org.apache.camel:camel-core
 //DEPS org.apache.camel:camel-stream
 //DEPS org.apache.camel:camel-vertx
-//DEPS org.slf4j:slf4j-simple:1.7.30
+//DEPS org.slf4j:slf4j-simple:1.7.31
 
 import org.apache.camel.*;
 import org.apache.camel.builder.*;

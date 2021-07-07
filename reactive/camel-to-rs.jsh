@@ -1,10 +1,10 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
-//DEPS org.apache.camel:camel-bom:3.9.0@pom
+//DEPS org.apache.camel:camel-bom:3.11.0@pom
 //DEPS org.apache.camel:camel-core
 //DEPS org.apache.camel:camel-stream
 //DEPS org.apache.camel:camel-reactive-streams
 //DEPS io.reactivex.rxjava3:rxjava:3.0.12
-//DEPS org.slf4j:slf4j-nop:1.7.30
+//DEPS org.slf4j:slf4j-nop:1.7.31
 
 /open PRINTING
 
