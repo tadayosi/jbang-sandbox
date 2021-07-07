@@ -14,19 +14,14 @@ import static org.apache.camel.builder.PredicateBuilder.*;
 
 import static java.lang.System.*;
 
-class camel {
+out.println("Running Camel route...");
 
-    public static void main(String... args) throws Exception {
-        out.println("Running Camel route...");
-
-        Main main = new Main();
-        main.configure().addRoutesBuilder(new RouteBuilder() {
-            public void configure() throws Exception {
-                from("timer:hello?period=3000")
-                    .setBody().constant("Hello Camel!")
-                    .to("stream:out");
-            }
-        });
-        main.run();
+Main main = new Main();
+main.configure().addRoutesBuilder(new RouteBuilder() {
+    public void configure() throws Exception {
+        from("timer:hello?period=3000")
+            .setBody().constant("Hello Camel!")
+            .to("stream:out");
     }
-}
+});
+main.run();
