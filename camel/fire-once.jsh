@@ -8,8 +8,10 @@
 
 /open camel/camel-imports
 
-System.setProperty("org.slf4j.simpleLogger.logFile", "System.out");
-System.setProperty("camel.main.durationMaxMessages", "1");
+import static java.lang.System.*;
+
+setProperty("org.slf4j.simpleLogger.logFile", "System.out");
+setProperty("camel.main.durationMaxMessages", "1");
 
 Main main = new Main();
 main.configure().addRoutesBuilder(new RouteBuilder() {
