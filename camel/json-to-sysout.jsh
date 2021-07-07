@@ -15,7 +15,8 @@ import static java.lang.System.*;
 setProperty("org.slf4j.simpleLogger.logFile", "System.out");
 setProperty("camel.main.durationMaxMessages", "1");
 
-var location = "Beijing";
+var location = "Tokyo";
+var message = "Today's weather in " + location + ": ";
 
 Main main = new Main();
 main.configure().addRoutesBuilder(new RouteBuilder() {
@@ -25,16 +26,16 @@ main.configure().addRoutesBuilder(new RouteBuilder() {
             .transform().jsonpath("$.current_condition[0].weatherDesc[0].value")
             .choice()
                 .when(or(body().contains("Sunny"), body().contains("Clear")))
-                    .transform().constant("Today's weather: ☼")
+                    .transform().constant(message + "☀")
                     .endChoice()
-                .when(or(body().contains("cloudy"), body().contains("Overcast")))
-                    .transform().constant("Today's weather: ☁")
+                .when(or(body().contains("Cloudy"), body().contains("cloudy"), body().contains("Overcast")))
+                    .transform().constant(message + "☁")
                     .endChoice()
                 .when(body().contains("rain"))
-                    .transform().constant("Today's weather: ☂")
+                    .transform().constant(message + "☂")
                     .endChoice()
                 .otherwise()
-                    .transform().constant("Today's weather: ?")
+                    .transform().simple(message + "${body}")
             .end()
             .to("stream:out");
     }
