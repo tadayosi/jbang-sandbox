@@ -32,7 +32,7 @@ main.configure().addRoutesBuilder(new RouteBuilder() {
                 .transform().simple("${body.text}")
                 .to("stream:out")
                 .setHeader(Exchange.FILE_NAME, constant("twitter.log"))
-                .to("file:out?fileExist=Append");
+                .to("file:out?fileExist=Append&appendChars=\\n");
     }
 });
 main.run();
