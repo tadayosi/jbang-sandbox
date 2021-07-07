@@ -5,9 +5,9 @@ import static java.lang.System.setProperty;
 import static java.util.stream.IntStream.*;
 import static org.slf4j.LoggerFactory.*;
 
-setProperty("org.slf4j.simpleLogger.logFile", "System.out");
+setProperty("org.slf4j.simpleLogger.logFile", "System.err");
 
-var log = getLogger("log-to-sysout");
+var log = getLogger("log-to-syserr");
 
 range(0, 10).forEach(i -> {
     log.info("Hello! #{}", i);
