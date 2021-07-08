@@ -22,12 +22,14 @@ var accessTokenSecret = getenv("TWITTER_ACCESS_TOKEN_SECRET");
 var keyword = "#ApacheCamel";
 
 Main main = new Main();
+main.addProperty("camel.component.twitter-search.consumer-key", consumerKey);
+main.addProperty("camel.component.twitter-search.consumer-secret", consumerSecret);
+main.addProperty("camel.component.twitter-search.access-token", accessToken);
+main.addProperty("camel.component.twitter-search.access-token-secret", accessTokenSecret);
 main.configure().addRoutesBuilder(new RouteBuilder() {
     public void configure() throws Exception {
         from("timer:twitter-to-file?repeatCount=1")
-            .toF("twitter-search:%s?consumerKey=%s&consumerSecret=%s&accessToken=%s&accessTokenSecret=%s",
-                keyword,
-                consumerKey, consumerSecret, accessToken, accessTokenSecret)
+            .toF("twitter-search:%s", keyword)
             .split(body())
                 .transform().simple("${body.text}")
                 .to("stream:out")
