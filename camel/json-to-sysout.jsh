@@ -15,7 +15,7 @@ import static java.lang.System.*;
 setProperty("org.slf4j.simpleLogger.logFile", "System.out");
 setProperty("camel.main.durationMaxMessages", "1");
 
-var location = "Tokyo";
+var location = "Beijing";
 var message = "Today's weather in " + location + ": ";
 
 Main main = new Main();
