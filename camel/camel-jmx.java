@@ -1,10 +1,11 @@
-///usr/bin/env jbang --javaagent=org.jolokia:jolokia-jvm:1.7.0 "$0" "$@" ; exit $?
-//DEPS org.apache.camel:camel-bom:3.11.0@pom
+///usr/bin/env jbang --javaagent=org.jolokia:jolokia-jvm:1.7.1 "$0" "$@" ; exit $?
+//DEPS org.apache.camel:camel-bom:3.11.1@pom
 //DEPS org.apache.camel:camel-core
 //DEPS org.apache.camel:camel-management
 //DEPS org.apache.camel:camel-main
 //DEPS org.apache.camel:camel-stream
-//DEPS org.slf4j:slf4j-nop:1.7.31
+///DEPS org.slf4j:slf4j-nop:1.7.31
+//DEPS org.slf4j:slf4j-simple:1.7.31
 
 // Camel imports
 import org.apache.camel.*;

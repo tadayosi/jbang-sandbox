@@ -1,5 +1,5 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
-//DEPS org.apache.camel:camel-bom:3.11.0@pom
+//DEPS org.apache.camel:camel-bom:3.11.1@pom
 //DEPS org.apache.camel:camel-core
 //DEPS org.apache.camel:camel-main
 //DEPS org.apache.camel:camel-stream
