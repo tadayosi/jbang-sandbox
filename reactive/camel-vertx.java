@@ -1,6 +1,6 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //DEPS io.vertx:vertx-stack-depchain:4.2.3@pom
-//DEPS org.apache.camel:camel-bom:3.11.1@pom
+//DEPS org.apache.camel:camel-bom:3.14.0@pom
 //DEPS io.vertx:vertx-core
 //DEPS org.apache.camel:camel-core
 //DEPS org.apache.camel:camel-stream

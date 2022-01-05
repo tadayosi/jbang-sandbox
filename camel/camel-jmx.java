@@ -1,5 +1,5 @@
 ///usr/bin/env jbang --javaagent=org.jolokia:jolokia-jvm:1.7.1 "$0" "$@" ; exit $?
-//DEPS org.apache.camel:camel-bom:3.11.1@pom
+//DEPS org.apache.camel:camel-bom:3.14.0@pom
 //DEPS org.apache.camel:camel-core
 //DEPS org.apache.camel:camel-management
 //DEPS org.apache.camel:camel-main
