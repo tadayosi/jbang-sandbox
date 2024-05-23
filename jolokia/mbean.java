@@ -6,6 +6,8 @@
 
 import static java.lang.System.*;
 import java.lang.management.*;
+import java.math.*;
+
 import javax.management.*;
 
 import io.quarkus.runtime.*;
@@ -17,7 +19,7 @@ import jakarta.ws.rs.*;
 @ApplicationScoped
 public class mbean {
 
-    static final String objectName = "com.github.tadayosi:type=jbang,name=Sample";
+    static final String objectName = "com.github.tadayosi.samples.jbang:name=Sample";
     final Sample sampleMBean = new Sample();
 
     @GET
@@ -28,7 +30,7 @@ public class mbean {
     }
 
     void onStart(@Observes StartupEvent event) {
-        out.println("Register a mbean");
+        out.println("Register a mbean: " + objectName);
         try {
             var mbeanServer = ManagementFactory.getPlatformMBeanServer();
             mbeanServer.registerMBean(sampleMBean, new ObjectName(objectName));
@@ -38,7 +40,7 @@ public class mbean {
     }
 
     void onStop(@Observes ShutdownEvent event) {
-        out.println("Deregister a mbean");
+        out.println("Deregister a mbean: " + objectName);
         try {
             var mbeanServer = ManagementFactory.getPlatformMBeanServer();
             mbeanServer.unregisterMBean(new ObjectName(objectName));
@@ -48,17 +50,25 @@ public class mbean {
     }
 
     public interface SampleMBean {
-        String hello();
-        long largeNumber();
+        String hello(String message);
+        long longValue(long value);
+        BigInteger bigIntegerValue(BigInteger value);
     }
 
     public class Sample implements SampleMBean {
-        public String hello() {
+        public String hello(String message) {
+            out.println("hello: " + message);
             return "Hello World";
         }
 
-        public long largeNumber() {
+        public long longValue(long value) {
+            out.println("long: " + value);
             return Long.MAX_VALUE;
+        }
+
+        public BigInteger bigIntegerValue(BigInteger value) {
+            out.println("BigInteger: " + value);
+            return BigInteger.valueOf(Long.MAX_VALUE).pow(2);
         }
     }
 }
