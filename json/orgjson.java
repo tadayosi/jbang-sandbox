@@ -7,11 +7,26 @@ import org.json.*;
 public class orgjson {
 
     public static void main(String... args) {
-        var json = new JSONObject();
-        json.put("boolean", true);
-        json.put("string", "hello");
-        json.put("long", 900719925474099123L);
-        json.put("bigint", "900719925474099123n");
-        out.println(json.toString());
+        // Object -> JSON
+        var obj = new JSONObject();
+        obj.put("boolean", true);
+        obj.put("string", "hello");
+        obj.put("long", 900719925474099123L);
+        obj.put("bigint", "900719925474099123n");
+        out.println("Object -> JSON:");
+        out.println(obj.toString());
+
+        // JSON -> Object
+        var json = """
+                {
+                  "boolean": true,
+                  "string": "hello",
+                  "bigint": 900719925474099123n,
+                  "long": 900719925474099123
+                }
+                """;
+        var obj2 = new JSONObject(json);
+        out.println("JSON -> Object:");
+        out.println(obj2);
     }
 }
