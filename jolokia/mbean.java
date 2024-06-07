@@ -1,5 +1,5 @@
-///usr/bin/env jbang --javaagent=org.jolokia:jolokia-agent-jvm:2.0.2:javaagent=discoveryEnabled=true "$0" "$@" ; exit $?
-//DEPS io.quarkus.platform:quarkus-bom:3.10.1@pom
+///usr/bin/env jbang --javaagent=org.jolokia:jolokia-agent-jvm:2.0.3:javaagent=discoveryEnabled=true,serializeLong=number "$0" "$@" ; exit $?
+//DEPS io.quarkus.platform:quarkus-bom:3.11.0@pom
 //DEPS io.quarkus:quarkus-rest
 //JAVAC_OPTIONS -parameters
 //JAVA_OPTIONS -Djava.util.logging.manager=org.jboss.logmanager.LogManager
@@ -19,7 +19,7 @@ import jakarta.ws.rs.*;
 @ApplicationScoped
 public class mbean {
 
-    static final String objectName = "com.github.tadayosi.samples.jbang:name=Sample";
+    static final String objectName = "samples.jbang:name=Sample";
     final Sample sampleMBean = new Sample();
 
     @GET
@@ -50,25 +50,39 @@ public class mbean {
     }
 
     public interface SampleMBean {
+        String getMessage();
+        long getLong();
+        BigInteger getBigInteger();
         String hello(String message);
         long longValue(long value);
         BigInteger bigIntegerValue(BigInteger value);
     }
 
     public class Sample implements SampleMBean {
+        String s = "";
+        long l = 0L;
+        BigInteger bi = BigInteger.ZERO;
+
+        public String getMessage() { return s; }
+        public long getLong() { return l; }
+        public BigInteger getBigInteger() { return bi; }
+
         public String hello(String message) {
+            s = message;
             out.println("hello: " + message);
             return "Hello World";
         }
 
         public long longValue(long value) {
+            l = value;
             out.println("long: " + value);
-            return Long.MAX_VALUE;
+            return value;
         }
 
         public BigInteger bigIntegerValue(BigInteger value) {
+            bi = value;
             out.println("BigInteger: " + value);
-            return BigInteger.valueOf(Long.MAX_VALUE).pow(2);
+            return value;
         }
     }
 }
