@@ -6,4 +6,7 @@
 *.cer
 *.jar
 
+# protoc gRPC Java plugin
+*.exe
+
 out/
