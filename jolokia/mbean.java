@@ -1,19 +1,26 @@
-///usr/bin/env jbang --javaagent=org.jolokia:jolokia-agent-jvm:2.0.2:javaagent=discoveryEnabled=true "$0" "$@" ; exit $?
-//DEPS io.quarkus.platform:quarkus-bom:3.10.1@pom
-//DEPS io.quarkus:quarkus-rest
+///usr/bin/env jbang --javaagent=org.jolokia:jolokia-agent-jvm:2.2.1:javaagent=discoveryEnabled=true "$0" "$@" ; exit $?
+
+//JAVA 17
 //JAVAC_OPTIONS -parameters
 //JAVA_OPTIONS -Djava.util.logging.manager=org.jboss.logmanager.LogManager
 
-import static java.lang.System.*;
-import java.lang.management.*;
-import java.math.*;
+//DEPS io.quarkus.platform:quarkus-bom:3.17.8@pom
+//DEPS io.quarkus:quarkus-rest
 
-import javax.management.*;
+import static java.lang.System.err;
+import static java.lang.System.out;
 
-import io.quarkus.runtime.*;
-import jakarta.enterprise.context.*;
-import jakarta.enterprise.event.*;
-import jakarta.ws.rs.*;
+import java.lang.management.ManagementFactory;
+import java.math.BigInteger;
+
+import javax.management.ObjectName;
+
+import io.quarkus.runtime.ShutdownEvent;
+import io.quarkus.runtime.StartupEvent;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.event.Observes;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 
 @Path("/")
 @ApplicationScoped
@@ -51,7 +58,11 @@ public class mbean {
 
     public interface SampleMBean {
         String hello(String message);
+
+        String html();
+
         long longValue(long value);
+
         BigInteger bigIntegerValue(BigInteger value);
     }
 
@@ -59,6 +70,35 @@ public class mbean {
         public String hello(String message) {
             out.println("hello: " + message);
             return "Hello World";
+        }
+
+        public String html() {
+            out.println("html");
+            return """
+                    <!DOCTYPE html>
+                    <html>
+                    <body>
+                    <table class="pf-v5-c-table">
+                      <thead class="pf-v5-c-table__thead">
+                        <tr class="pf-v5-c-table__tr">
+                          <th class="pf-v5-c-table__th">key1</td>
+                          <th class="pf-v5-c-table__th">key2</td>
+                        </tr>
+                      </thead>
+                      <tbody class="pf-v5-c-table__tbody">
+                        <tr class="pf-v5-c-table__tr">
+                          <td class="pf-v5-c-table__td">value1</td>
+                          <td class="pf-v5-c-table__td">value2</td>
+                        </tr>
+                        <tr class="pf-v5-c-table__tr">
+                          <td class="pf-v5-c-table__td">value3</td>
+                          <td class="pf-v5-c-table__td">value4</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </body>
+                    </html>
+                    """;
         }
 
         public long longValue(long value) {
