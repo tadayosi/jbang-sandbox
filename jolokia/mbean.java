@@ -1,4 +1,4 @@
-///usr/bin/env jbang --javaagent=org.jolokia:jolokia-agent-jvm:2.2.1:javaagent=discoveryEnabled=true "$0" "$@" ; exit $?
+///usr/bin/env jbang --javaagent=org.jolokia:jolokia-agent-jvm:2.2.9:javaagent=discoveryEnabled=true "$0" "$@" ; exit $?
 
 //JAVA 17
 //JAVAC_OPTIONS -parameters
